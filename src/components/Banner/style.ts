@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-import bannerImg from '../../assets/pasta.png'
 
 export const BannerContainer = styled.div`
-  background-image: url(${bannerImg});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
