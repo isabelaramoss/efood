@@ -2,6 +2,7 @@ import Food from '../../models/Food'
 import japonesa from '../../assets/sushi.png'
 import italiana from '../../assets/pasta.png'
 import FoodList from '../../components/FoodList'
+import HeaderMain from '../../components/HeaderMain'
 
 const main: Food[] = [
   {
@@ -62,6 +63,7 @@ const main: Food[] = [
 
 const Home = () => (
   <>
+    <HeaderMain />
     <FoodList items={main} />
   </>
 )
