@@ -44,7 +44,7 @@ const FoodCard = ({
         </RatingContainer>
       </Infos>
       <Descr>{description}</Descr>
-      <Button>Saiba mais</Button>
+      <Button to="/restaurantes">Saiba mais</Button>
     </InfoContent>
   </FoodContainer>
 )

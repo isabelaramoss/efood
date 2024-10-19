@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { colors } from '../../styles'
 import { TagContainer } from '../Tag/style'
 
@@ -52,7 +53,7 @@ export const Descr = styled.p`
   margin-bottom: 32px;
 `
 
-export const Button = styled.button`
+export const Button = styled(Link)`
   background-color: ${colors.primary};
   color: ${colors.beige};
   padding: 4px 6px;
@@ -62,4 +63,5 @@ export const Button = styled.button`
   bottom: 8px;
   left: 8px;
   border: none;
+  text-decoration: none;
 `
