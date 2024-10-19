@@ -1,10 +1,15 @@
+import { HeaderBar, HeaderTitle } from './style'
+import logo from '../../assets/efood-logo.png'
+
 const Header = () => (
-  <div className="headerbar">
+  <HeaderBar>
     <div>
-      <img src="" alt="" />
-      <h1>Viva experiências gastrônomicas no conforto da sua casa</h1>
+      <img src={logo} alt="Logo eFood" />
+      <HeaderTitle>
+        Viva experiências gastrônomicas no conforto da sua casa
+      </HeaderTitle>
     </div>
-  </div>
+  </HeaderBar>
 )
 
 export default Header
