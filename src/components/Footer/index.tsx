@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import logo from '../../assets/efood-logo.png'
 import instagram from '../../assets/instagram.png'
 import facebook from '../../assets/facebook.png'
@@ -7,7 +8,9 @@ import { FooterContainer, ListContainer } from './style'
 const Footer = () => (
   <FooterContainer>
     <div className="container">
-      <img src={logo} alt="Logo eFood" />
+      <Link to="/">
+        <img src={logo} alt="Logo eFood" />
+      </Link>
       <ListContainer>
         <li>
           <a href="">
