@@ -1,6 +1,6 @@
 import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from './styles'
-import Header from './components/Header'
+import HeaderMain from './components/HeaderMain'
 import Home from './pages/Home'
 import Footer from './components/Footer'
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <GlobalStyle />
-      <Header />
+      <HeaderMain />
       <div className="container">
         <Home />
       </div>

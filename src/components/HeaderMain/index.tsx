@@ -1,7 +1,7 @@
 import { HeaderBar, HeaderTitle } from './style'
 import logo from '../../assets/efood-logo.png'
 
-const Header = () => (
+const HeaderMain = () => (
   <HeaderBar>
     <div>
       <img src={logo} alt="Logo eFood" />
@@ -12,4 +12,4 @@ const Header = () => (
   </HeaderBar>
 )
 
-export default Header
+export default HeaderMain
