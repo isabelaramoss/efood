@@ -1,16 +1,17 @@
 import { Link } from 'react-router-dom'
 import logo from '../../assets/efood-logo.png'
+import { Content, HeaderContainer, Title } from './style'
 
 const HeaderFoodMenu = () => (
-  <div className="header-container">
-    <div className="container">
-      <h3>Restaurantes</h3>
+  <HeaderContainer>
+    <Content className="container">
+      <Title>Restaurantes</Title>
       <Link to="/">
         <img src={logo} alt="Logo eFood" />
       </Link>
-      <h3>0 produto(s) no carrinho</h3>
-    </div>
-  </div>
+      <Title>0 produto(s) no carrinho</Title>
+    </Content>
+  </HeaderContainer>
 )
 
 export default HeaderFoodMenu
