@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { colors } from '../../styles'
+import { breakpoints, colors } from '../../styles'
 import bannerImg from '../../assets/pasta.png'
 
 export const BannerContainer = styled.div`
@@ -32,6 +32,10 @@ export const Content = styled.div`
   padding: 24px 0;
   font-size: 32px;
   color: ${colors.white};
+
+  @media (max-width: ${breakpoints.mobile}) {
+    font-size: 20px;
+  }
 
   h1,
   span {
