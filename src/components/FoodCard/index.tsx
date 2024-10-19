@@ -1,30 +1,38 @@
 import starIcon from '../../assets/star.png'
 import img from '../../assets/sushi.png'
-//import from './style'
+import {
+  FoodContainer,
+  TagContent,
+  InfoContent,
+  Infos,
+  RatingContainer,
+  Descr,
+  Button
+} from './style'
 
 const FoodCard = () => (
-  <div className="food-container">
-    <img src={img} alt="" />
-    <div className="tag-content">
+  <FoodContainer>
+    <img src={img} alt="#" />
+    <TagContent className="tag">
       <a href="#">Tag</a>
-    </div>
-    <div className="info-content">
-      <div className="infos">
+    </TagContent>
+    <InfoContent>
+      <Infos>
         <h4>Nome restaurante</h4>
-        <div className="rating-container">
+        <RatingContainer>
           <h4>4.6</h4>
           <img src={starIcon} alt="Imagem estrela" />
-        </div>
-      </div>
-      <div className="description">
+        </RatingContainer>
+      </Infos>
+      <Descr>
         Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis
         frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega
         rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão
         sem sair do lar com nosso delivery!
-      </div>
-      <button>Saiba mais</button>
-    </div>
-  </div>
+      </Descr>
+      <Button>Saiba mais</Button>
+    </InfoContent>
+  </FoodContainer>
 )
 
 export default FoodCard
