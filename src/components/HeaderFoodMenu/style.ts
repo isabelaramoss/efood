@@ -11,6 +11,12 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: ${breakpoints.mobile}) {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
 `
 
 export const Title = styled.h3`
