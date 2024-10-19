@@ -7,7 +7,6 @@ import {
   InfoContent,
   Infos,
   RatingContainer,
-  Descr,
   Button
 } from './style'
 
@@ -43,7 +42,7 @@ const FoodCard = ({
           <img src={starIcon} alt="Imagem estrela" />
         </RatingContainer>
       </Infos>
-      <Descr>{description}</Descr>
+      <p>{description}</p>
       <Button to="/restaurantes">Saiba mais</Button>
     </InfoContent>
   </FoodContainer>

@@ -30,6 +30,12 @@ export const TagContent = styled.div`
 
 export const InfoContent = styled.div`
   padding: 8px;
+
+  p {
+    font-size: 14px;
+    line-height: 21px;
+    margin-bottom: 32px;
+  }
 `
 
 export const Infos = styled.div`
@@ -45,12 +51,6 @@ export const RatingContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-`
-
-export const Descr = styled.p`
-  font-size: 14px;
-  line-height: 21px;
-  margin-bottom: 32px;
 `
 
 export const Button = styled(Link)`

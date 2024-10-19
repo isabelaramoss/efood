@@ -1,4 +1,4 @@
-import { ButtonAdd, Descr, FoodContainer, InfoContent, Title } from './style'
+import { ButtonAdd, FoodContainer, InfoContent } from './style'
 
 type Props = {
   image: string
@@ -11,8 +11,8 @@ const MenuCard = ({ image, title, description }: Props) => (
   <FoodContainer>
     <img src={image} alt="" />
     <InfoContent>
-      <Title>{title}</Title>
-      <Descr>{description}</Descr>
+      <h4>{title}</h4>
+      <p>{description}</p>
     </InfoContent>
     <ButtonAdd>Adicionar ao carrinho</ButtonAdd>
   </FoodContainer>

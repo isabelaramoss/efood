@@ -24,16 +24,17 @@ export const InfoContent = styled.div`
   padding: 8px;
   padding-top: 0;
   width: 100%;
-`
 
-export const Title = styled.h4`
-  font-size: 16px;
-  font-weight: 900;
-`
-export const Descr = styled.p`
-  font-size: 14px;
-  line-height: 21px;
-  margin: 8px 0;
+  h4 {
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 21px;
+    margin: 8px 0;
+  }
 `
 
 export const ButtonAdd = styled.button`
