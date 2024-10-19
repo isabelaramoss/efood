@@ -1,5 +1,6 @@
 import starIcon from '../../assets/star.png'
 import img from '../../assets/sushi.png'
+import Tag from '../Tag'
 import {
   FoodContainer,
   TagContent,
@@ -14,7 +15,8 @@ const FoodCard = () => (
   <FoodContainer>
     <img src={img} alt="#" />
     <TagContent className="tag">
-      <a href="#">Tag</a>
+      <Tag>Destaque da semana</Tag>
+      <Tag>Japonesa</Tag>
     </TagContent>
     <InfoContent>
       <Infos>

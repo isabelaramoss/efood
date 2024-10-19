@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { colors } from '../../styles'
+import { TagContainer } from '../Tag/style'
 
 export const FoodContainer = styled.div`
   max-width: 472px;
@@ -13,6 +14,10 @@ export const FoodContainer = styled.div`
     width: 100%;
     height: 224px;
     max-height: 100%;
+  }
+
+  ${TagContainer} {
+    margin-left: 12px;
   }
 `
 export const TagContent = styled.div`
