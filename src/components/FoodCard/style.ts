@@ -9,6 +9,7 @@ export const FoodContainer = styled.div`
   border: 1px solid ${colors.primary};
   border-top: none;
   position: relative;
+  margin-bottom: 48px;
 
   > img {
     width: 100%;

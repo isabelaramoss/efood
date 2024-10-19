@@ -1,16 +1,17 @@
+import { BrowserRouter } from 'react-router-dom'
 import { GlobalStyle } from './styles'
 import Header from './components/Header'
-import FoodCard from './components/FoodCard'
+import Home from './pages/Home'
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <Header />
       <div className="container">
-        <FoodCard />
+        <Home />
       </div>
-    </>
+    </BrowserRouter>
   )
 }
 
