@@ -1,8 +1,8 @@
-import Banner from '../../components/Banner'
-import HeaderFoodMenu from '../../components/HeaderFoodMenu'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FoodInfos } from '../Home'
+import Banner from '../../components/Banner'
+import HeaderFoodMenu from '../../components/HeaderFoodMenu'
 import FoodMenuLists from '../../components/FoodMenuList'
 
 const FoodMenu = () => {

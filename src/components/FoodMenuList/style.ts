@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
-// import { Link } from "react-router-dom"
 
 export const MenuListContainer = styled.section`
   padding: 32px o;
