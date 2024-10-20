@@ -16,6 +16,7 @@ export const FoodContainer = styled.div`
     width: 100%;
     height: 224px;
     max-height: 100%;
+    object-fit: cover;
   }
 
   ${TagContainer} {

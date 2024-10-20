@@ -1,60 +1,41 @@
-import MenuFood from '../../models/MenuFood'
 import Banner from '../../components/Banner'
 import HeaderFoodMenu from '../../components/HeaderFoodMenu'
-import pizza from '../../assets/pizza.png'
-import MenuList from '../../components/FoodMenuList'
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { FoodInfos } from '../Home'
+import FoodMenuLists from '../../components/FoodMenuList'
 
-const menuCard: MenuFood[] = [
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 1
-  },
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 2
-  },
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 3
-  },
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 4
-  },
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 5
-  },
-  {
-    image: pizza,
-    title: 'Pizza Marguerita',
-    description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
-    id: 6
+const FoodMenu = () => {
+  const { id } = useParams()
+  const [menus, setMenus] = useState<FoodInfos>()
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setMenus(res))
+  }, [id])
+
+  if (!menus) {
+    return <h3>Carregando...</h3>
   }
-]
 
-const FoodMenu = () => (
-  <>
-    <HeaderFoodMenu />
-    <Banner />
-    <MenuList items={menuCard} />
-  </>
-)
+  return (
+    <>
+      <HeaderFoodMenu />
+      <Banner
+        bannerFood={{
+          id: menus.id,
+          titulo: menus.titulo,
+          destacado: menus.destacado,
+          tipo: menus.tipo,
+          avaliacao: menus.avaliacao,
+          descricao: menus.descricao,
+          capa: menus.capa,
+          cardapio: []
+        }}
+      />
+      <FoodMenuLists items={menus.cardapio} />
+    </>
+  )
+}
 
 export default FoodMenu
