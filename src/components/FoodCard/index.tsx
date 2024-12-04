@@ -38,7 +38,7 @@ const FoodCard = ({
       <img src={image} alt="#" />
       <TagContent className="tag">
         {tagInfos.map((t) => (
-          <Tag key={id}>{t}</Tag>
+          <Tag key={t}>{t}</Tag>
         ))}
       </TagContent>
       <InfoContent>
