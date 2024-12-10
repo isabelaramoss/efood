@@ -34,7 +34,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
 
   const closeModal = () => {
     setModal({
-      isVisible: true,
+      isVisible: false,
       id: 0,
       foto: '',
       nome: '',
@@ -93,7 +93,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
       <Modal className={modal.isVisible ? 'visible' : ''}>
         <ModalContainer>
           <div>
-            <img src={modal.foto} alt="Imagem comida" onClick={closeModal} />
+            <img src={modal.foto} alt="Imagem comida" />
           </div>
           <Content>
             <h2>{modal.nome}</h2>
@@ -109,7 +109,12 @@ const FoodMenuList = ({ items }: FoodItems) => {
             onClick={closeModal}
           />
         </ModalContainer>
-        <div className="overlay" onClick={closeModal}></div>
+        <div
+          className="overlay"
+          onClick={() => {
+            closeModal()
+          }}
+        ></div>
       </Modal>
     </>
   )
