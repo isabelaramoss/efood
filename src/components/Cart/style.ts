@@ -15,13 +15,17 @@ export const Overlay = styled.div`
 
 export const CartContainer = styled.div`
   position: fixed;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
+
+  &.is-open {
+    display: flex;
+  }
 `
 
 export const Sidebar = styled.aside`
@@ -30,6 +34,7 @@ export const Sidebar = styled.aside`
   z-index: 1;
   max-width: 360px;
   width: 100%;
+
   .margin-top {
     margin-top: 32px;
   }
@@ -70,8 +75,8 @@ export const ButtonDelete = styled.button`
   bottom: 8px;
   right: 8px;
   width: 16px;
-  height: 16px;
   border: none;
+  height: 16px;
   background-image: url(${Delete});
   background-color: transparent;
   cursor: pointer;

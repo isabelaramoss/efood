@@ -11,17 +11,21 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
 
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     align-items: center;
     gap: 32px;
+    margin: 0 auto;
+  }
   }
 `
 
-export const Title = styled.h3`
-  font-size: 18px;
-  font-weight: bold;
+export const CartButton = styled.a`
+  display: flex;
+  cursor: pointer;
 
   @media (max-width: ${breakpoints.mobile}) {
     margin: 0 auto;
