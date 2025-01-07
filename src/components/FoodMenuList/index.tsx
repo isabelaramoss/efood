@@ -12,6 +12,8 @@ import {
   Content,
   CloseButton
 } from './style'
+import { useDispatch } from 'react-redux'
+import { add } from '../../store/reducers/cart'
 
 interface modalState extends Cardapio {
   isVisible: boolean
@@ -22,6 +24,8 @@ type FoodItems = {
 }
 
 const FoodMenuList = ({ items }: FoodItems) => {
+  const dispatch = useDispatch()
+
   const [modal, setModal] = useState<modalState>({
     isVisible: false,
     id: 0,
@@ -56,6 +60,10 @@ const FoodMenuList = ({ items }: FoodItems) => {
       return descricao.slice(0, 97) + '...'
     }
     return descricao
+  }
+
+  const addToCart = () => {
+    dispatch(add(items))
   }
 
   return (
@@ -99,7 +107,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
             <h2>{modal.nome}</h2>
             <p>{modal.descricao}</p>
             <span>Serve: {modal.porcao}</span>
-            <ButtonAdd>
+            <ButtonAdd onClick={addToCart}>
               Adicionar ao carrinho - {priceFormat(modal.preco)}
             </ButtonAdd>
           </Content>
