@@ -13,7 +13,7 @@ import {
   CloseButton
 } from './style'
 import { useDispatch } from 'react-redux'
-import { add } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/cart'
 
 interface modalState extends Cardapio {
   isVisible: boolean
@@ -64,6 +64,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
 
   const addToCart = () => {
     dispatch(add(modal))
+    dispatch(open())
   }
 
   return (
