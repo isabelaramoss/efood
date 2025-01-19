@@ -63,7 +63,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
   }
 
   const addToCart = () => {
-    dispatch(add(items))
+    dispatch(add(modal))
   }
 
   return (
