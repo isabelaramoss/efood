@@ -4,6 +4,10 @@ import { breakpoints } from '../../styles'
 
 export const FoodListContainer = styled.section<Omit<Props, 'items'>>`
   padding: 32px 0;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    padding: 8px 0;
+  }
 `
 
 export const List = styled.ul`

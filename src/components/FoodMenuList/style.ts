@@ -2,7 +2,11 @@ import styled from 'styled-components'
 import { breakpoints, colors } from '../../styles'
 
 export const MenuListContainer = styled.section`
-  padding: 32px o;
+  padding: 32px 0;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 100%;
+  }
 `
 
 export const List = styled.ul`
