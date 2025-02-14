@@ -4,11 +4,13 @@ import { Cardapio } from '../../pages/Home'
 type CartState = {
   items: Cardapio[]
   isOpen: boolean
+  step: number
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  step: 1
 }
 
 const cartSlice = createSlice({
@@ -34,9 +36,22 @@ const cartSlice = createSlice({
     },
     close: (state) => {
       state.isOpen = false
+    },
+    nextStep: (state) => {
+      if (state.step < 4) state.step += 1
+    },
+    prevStep: (state) => {
+      if (state.step > 1) state.step -= 1
+    },
+    setStep: (state, action: PayloadAction<number>) => {
+      state.step = action.payload
+    },
+    clear: (state) => {
+      state.items = []
     }
   }
 })
 
-export const { add, open, close, remove } = cartSlice.actions
+export const { add, open, close, remove, nextStep, prevStep, setStep, clear } =
+  cartSlice.actions
 export default cartSlice.reducer
