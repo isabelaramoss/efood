@@ -1,4 +1,5 @@
 import { useGetRestaurantsQuery } from '../../services/api'
+
 import HeaderMain from '../../components/HeaderMain'
 import FoodList from '../../components/FoodList'
 

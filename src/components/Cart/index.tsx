@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+
 import { usePurchaseMutation } from '../../services/api'
-import { ButtonAdd } from '../FoodMenuList/style'
 import { RootReducer } from '../../store'
 import {
   close,
@@ -12,6 +12,8 @@ import {
   setStep,
   clear
 } from '../../store/reducers/cart'
+
+import { ButtonAdd } from '../FoodMenuList/style'
 import {
   ButtonDelete,
   CartContainer,

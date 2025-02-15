@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { open } from '../../store/reducers/cart'
+
 import { RootReducer } from '../../store'
+
 import logo from '../../assets/efood-logo.png'
 import { Content, HeaderContainer, CartButton } from './style'
 

@@ -1,5 +1,6 @@
-import { FoodInfos } from '../../pages/Home'
 import FoodCard from '../FoodCard'
+import { FoodInfos } from '../../pages/Home'
+
 import { FoodListContainer, List } from './style'
 
 export type Props = {

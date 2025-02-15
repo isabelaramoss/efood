@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+
 import { breakpoints } from '../../styles'
 import backgroundImg from '../../assets/bg-img.png'
 

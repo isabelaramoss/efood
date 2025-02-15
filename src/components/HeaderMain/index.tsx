@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { HeaderBar, HeaderTitle } from './style'
+
 import logo from '../../assets/efood-logo.png'
+import { HeaderBar, HeaderTitle } from './style'
 
 const HeaderMain = () => (
   <HeaderBar>

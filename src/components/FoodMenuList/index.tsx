@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
+
 import { add, open } from '../../store/reducers/cart'
 import { Cardapio } from '../../pages/Home'
+
 import closeIcon from '../../assets/close-icon.png'
 import {
   MenuListContainer,
