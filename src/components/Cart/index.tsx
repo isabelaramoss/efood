@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import InputMask from 'react-input-mask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { parseToBrl } from '../../utils'
@@ -15,7 +14,9 @@ import {
   clear
 } from '../../store/reducers/cart'
 
-import { ButtonAdd } from '../FoodMenuList/style'
+import closeIcon from '../../assets/close-icon.png'
+
+import { ButtonAdd, CloseButton } from '../FoodMenuList/style'
 import * as S from './style'
 
 const Cart = () => {
@@ -158,6 +159,7 @@ const Cart = () => {
       <S.CartContainer className={isOpen ? 'is-open' : ''}>
         <S.Overlay onClick={closeCart} />
         <S.Sidebar>
+          <CloseButton alt="Botão fechar" src={closeIcon} onClick={closeCart} />
           {items.length > 0 ? (
             <>
               {step === 1 && (
@@ -227,7 +229,7 @@ const Cart = () => {
                     <div className="side-x-side">
                       <div>
                         <label htmlFor="cep">CEP</label>
-                        <InputMask
+                        <input
                           type="number"
                           name="cep"
                           id="cep"
@@ -235,7 +237,6 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cep') ? 'error' : ''}
-                          mask="99999-999"
                         />
                       </div>
                       <div>
@@ -318,7 +319,7 @@ const Cart = () => {
                     <div className="address-numbers">
                       <div>
                         <label htmlFor="cardNumber">Número do cartão</label>
-                        <InputMask
+                        <input
                           type="number"
                           name="cardNumber"
                           id="cardNumber"
@@ -326,12 +327,11 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cardNumber') ? 'error' : ''}
-                          mask="9999 9999 9999 9999"
                         />
                       </div>
                       <div>
                         <label htmlFor="cardCode">CVV</label>
-                        <InputMask
+                        <input
                           type="number"
                           name="cardCode"
                           id="cardCode"
@@ -339,14 +339,13 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cardCode') ? 'error' : ''}
-                          mask="999"
                         />
                       </div>
                     </div>
                     <div className="address-numbers">
                       <div>
                         <label htmlFor="expiresMonth">Mês do vencimento</label>
-                        <InputMask
+                        <input
                           type="number"
                           name="expiresMonth"
                           id="expiresMonth"
@@ -354,12 +353,11 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('expiresMonth') ? 'error' : ''}
-                          mask="99"
                         />
                       </div>
                       <div>
                         <label htmlFor="expiresYear">Ano do vencimento</label>
-                        <InputMask
+                        <input
                           type="number"
                           name="expiresYear"
                           id="expiresYear"
@@ -367,7 +365,6 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('expiresYear') ? 'error' : ''}
-                          mask="99"
                         />
                       </div>
                     </div>

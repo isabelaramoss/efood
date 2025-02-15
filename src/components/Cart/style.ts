@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { colors } from '../../styles'
-import { ButtonAdd } from '../FoodMenuList/style'
+import { breakpoints, colors } from '../../styles'
+import { ButtonAdd, CloseButton } from '../FoodMenuList/style'
 
 import Delete from '../../assets/delete-icon.png'
 
@@ -50,6 +50,20 @@ export const Sidebar = styled.aside`
   ${ButtonAdd} {
     padding: 4px 94px;
     max-width: 100%;
+
+    @media (max-width: ${breakpoints.mobile}) {
+      padding: 4px 93px;
+    }
+  }
+
+  ${CloseButton} {
+    display: none;
+
+    @media (max-width: ${breakpoints.mobile}) {
+      display: flex;
+      margin-top: 16px;
+      margin-left: 8px;
+    }
   }
 `
 
@@ -153,6 +167,10 @@ export const ButtonDelivery = styled.button`
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
+
+  // @media (max-width: ${breakpoints.mobile}) {
+  //   width: 300px;
+  // }
 `
 export const ButtonDone = styled(Link)`
   background-color: ${colors.secondary};

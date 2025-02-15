@@ -112,6 +112,7 @@ export const ModalContainer = styled.div`
   @media (max-width: ${breakpoints.mobile}) {
     flex-direction: column;
     align-items: center;
+    width: 376px;
   }
 
   > div {
