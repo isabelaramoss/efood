@@ -7,6 +7,7 @@ import { Cardapio } from '../../pages/Home'
 
 import closeIcon from '../../assets/close-icon.png'
 import * as S from './style'
+import Loader from '../Loader'
 
 interface modalState extends Cardapio {
   isVisible: boolean
@@ -14,9 +15,10 @@ interface modalState extends Cardapio {
 
 type FoodItems = {
   items: Cardapio[]
+  isLoading: boolean
 }
 
-const FoodMenuList = ({ items }: FoodItems) => {
+const FoodMenuList = ({ items, isLoading }: FoodItems) => {
   const dispatch = useDispatch()
 
   const [modal, setModal] = useState<modalState>({
@@ -51,6 +53,10 @@ const FoodMenuList = ({ items }: FoodItems) => {
   const addToCart = () => {
     dispatch(add(modal))
     dispatch(open())
+  }
+
+  if (isLoading) {
+    return <Loader />
   }
 
   return (

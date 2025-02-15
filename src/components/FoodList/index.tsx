@@ -2,12 +2,14 @@ import FoodCard from '../FoodCard'
 import { FoodInfos } from '../../pages/Home'
 
 import * as S from './style'
+import Loader from '../Loader'
 
 export type Props = {
-  items: FoodInfos[]
+  items?: FoodInfos[]
+  isLoading: boolean
 }
 
-const FoodList = ({ items }: Props) => {
+const FoodList = ({ items, isLoading }: Props) => {
   const getTags = (food: FoodInfos) => {
     const tags = []
 
@@ -22,21 +24,26 @@ const FoodList = ({ items }: Props) => {
     return tags
   }
 
+  if (isLoading) {
+    return <Loader />
+  }
+
   return (
     <S.FoodListContainer>
       <div className="container">
         <S.List>
-          {items.map((food) => (
-            <FoodCard
-              key={food.id}
-              image={food.capa}
-              tagInfos={getTags(food)}
-              title={food.titulo}
-              rating={food.avaliacao}
-              description={food.descricao}
-              id={food.id}
-            />
-          ))}
+          {items &&
+            items.map((food) => (
+              <FoodCard
+                key={food.id}
+                image={food.capa}
+                tagInfos={getTags(food)}
+                title={food.titulo}
+                rating={food.avaliacao}
+                description={food.descricao}
+                id={food.id}
+              />
+            ))}
         </S.List>
       </div>
     </S.FoodListContainer>

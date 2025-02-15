@@ -2,7 +2,9 @@ import styled from 'styled-components'
 import { Props } from '.'
 import { breakpoints } from '../../styles'
 
-export const FoodListContainer = styled.section<Omit<Props, 'items'>>`
+export const FoodListContainer = styled.section<
+  Omit<Props, 'items' | 'isLoading'>
+>`
   padding: 32px 0;
 
   @media (max-width: ${breakpoints.desktop}) {

@@ -24,18 +24,14 @@ export type FoodInfos = {
 }
 
 const Home = () => {
-  const { data: FoodItems } = useGetRestaurantsQuery()
+  const { data: FoodItems, isLoading } = useGetRestaurantsQuery()
 
-  if (FoodItems) {
-    return (
-      <>
-        <HeaderMain />
-        <FoodList items={FoodItems} />
-      </>
-    )
-  }
-
-  return <h4>Carregando...</h4>
+  return (
+    <>
+      <HeaderMain />
+      <FoodList items={FoodItems} isLoading={isLoading} />
+    </>
+  )
 }
 
 export default Home

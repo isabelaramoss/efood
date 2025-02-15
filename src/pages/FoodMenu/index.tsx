@@ -5,13 +5,14 @@ import { useGetRestaurantsByIdQuery } from '../../services/api'
 import Banner from '../../components/Banner'
 import HeaderFoodMenu from '../../components/HeaderFoodMenu'
 import FoodMenuLists from '../../components/FoodMenuList'
+import Loader from '../../components/Loader'
 
 const FoodMenu = () => {
   const { id } = useParams()
-  const { data: menus } = useGetRestaurantsByIdQuery(id!)
+  const { data: menus, isLoading } = useGetRestaurantsByIdQuery(id!)
 
   if (!menus) {
-    return <h3>Carregando...</h3>
+    return <Loader />
   }
 
   return (
@@ -29,7 +30,7 @@ const FoodMenu = () => {
           cardapio: []
         }}
       />
-      <FoodMenuLists items={menus.cardapio} />
+      <FoodMenuLists items={menus.cardapio} isLoading={isLoading} />
     </>
   )
 }
