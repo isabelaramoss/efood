@@ -1,5 +1,4 @@
 import FoodCard from '../FoodCard'
-import { FoodInfos } from '../../pages/Home'
 
 import * as S from './style'
 import Loader from '../Loader'

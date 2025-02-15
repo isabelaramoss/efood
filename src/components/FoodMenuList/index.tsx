@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 
 import { add, open } from '../../store/reducers/cart'
 import { parseToBrl } from '../../utils'
-import { Cardapio } from '../../pages/Home'
 
 import closeIcon from '../../assets/close-icon.png'
 import * as S from './style'
