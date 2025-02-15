@@ -1,14 +1,7 @@
 import Tag from '../Tag'
 import starIcon from '../../assets/star.png'
 
-import {
-  FoodContainer,
-  TagContent,
-  InfoContent,
-  Infos,
-  RatingContainer,
-  Button
-} from './style'
+import * as S from './style'
 
 type Props = {
   image: string
@@ -34,30 +27,30 @@ const FoodCard = ({
     return descr
   }
   return (
-    <FoodContainer>
+    <S.FoodContainer>
       <img src={image} alt="#" />
-      <TagContent className="tag">
+      <S.TagContent className="tag">
         {tagInfos.map((t) => (
           <Tag key={t}>{t}</Tag>
         ))}
-      </TagContent>
-      <InfoContent>
-        <Infos>
+      </S.TagContent>
+      <S.InfoContent>
+        <S.Infos>
           <h4>{title}</h4>
-          <RatingContainer>
+          <S.RatingContainer>
             <h4>{rating}</h4>
             <img src={starIcon} alt="Imagem estrela" />
-          </RatingContainer>
-        </Infos>
+          </S.RatingContainer>
+        </S.Infos>
         <p>{getDescription(description)}</p>
-        <Button
+        <S.Button
           title="Clique para saber mais sobre o restaurante"
           to={`/restaurantes/${id}`}
         >
           Saiba mais
-        </Button>
-      </InfoContent>
-    </FoodContainer>
+        </S.Button>
+      </S.InfoContent>
+    </S.FoodContainer>
   )
 }
 

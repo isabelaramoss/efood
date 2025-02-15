@@ -5,15 +5,15 @@ import instagram from '../../assets/instagram.png'
 import facebook from '../../assets/facebook.png'
 import twitter from '../../assets/twitter.png'
 
-import { FooterContainer, ListContainer } from './style'
+import * as S from './style'
 
 const Footer = () => (
-  <FooterContainer>
+  <S.FooterContainer>
     <div className="container">
       <Link title="eFood | Clique para ir à página inicial" to="/">
         <img src={logo} alt="Logo eFood" />
       </Link>
-      <ListContainer>
+      <S.ListContainer>
         <li>
           <a href="">
             <img src={instagram} alt="ícone Instagram" />
@@ -31,14 +31,14 @@ const Footer = () => (
             <img src={twitter} alt="ícone Twitter" />
           </a>
         </li>
-      </ListContainer>
+      </S.ListContainer>
       <p>
         A efood é uma plataforma para divulgação de estabelecimentos, a
         responsabilidade pela entrega, qualidade dos produtos é toda do
         estabelecimento contratado.
       </p>
     </div>
-  </FooterContainer>
+  </S.FooterContainer>
 )
 
 export default Footer

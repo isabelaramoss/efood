@@ -1,17 +1,17 @@
-import { BannerContainer, Content } from './style'
 import { FoodInfos } from '../../pages/Home'
+import * as S from './style'
 
 type Props = {
   bannerFood: FoodInfos
 }
 
 const Banner = ({ bannerFood }: Props) => (
-  <BannerContainer style={{ backgroundImage: `url(${bannerFood.capa})` }}>
-    <Content className="container">
+  <S.BannerContainer style={{ backgroundImage: `url(${bannerFood.capa})` }}>
+    <S.Content className="container">
       <span>{bannerFood.tipo}</span>
       <h1>{bannerFood.titulo}</h1>
-    </Content>
-  </BannerContainer>
+    </S.Content>
+  </S.BannerContainer>
 )
 
 export default Banner

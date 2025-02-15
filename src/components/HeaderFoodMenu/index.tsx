@@ -5,7 +5,7 @@ import { open } from '../../store/reducers/cart'
 import { RootReducer } from '../../store'
 
 import logo from '../../assets/efood-logo.png'
-import { Content, HeaderContainer, CartButton } from './style'
+import * as S from './style'
 
 const HeaderFoodMenu = () => {
   const dispatch = useDispatch()
@@ -16,17 +16,17 @@ const HeaderFoodMenu = () => {
   }
 
   return (
-    <HeaderContainer>
-      <Content className="container">
+    <S.HeaderContainer>
+      <S.Content className="container">
         <h3>Restaurantes</h3>
         <Link title="eFood | Clique para ir à página inicial" to="/">
           <img src={logo} alt="Logo eFood" />
         </Link>
-        <CartButton onClick={openCart} title="Clique para abrir carrinho">
+        <S.CartButton onClick={openCart} title="Clique para abrir carrinho">
           {items.length} produto(s) no carrinho
-        </CartButton>
-      </Content>
-    </HeaderContainer>
+        </S.CartButton>
+      </S.Content>
+    </S.HeaderContainer>
   )
 }
 

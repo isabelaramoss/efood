@@ -15,17 +15,7 @@ import {
 } from '../../store/reducers/cart'
 
 import { ButtonAdd } from '../FoodMenuList/style'
-import {
-  ButtonDelete,
-  CartContainer,
-  CartItems,
-  Overlay,
-  Sidebar,
-  TotalPrice,
-  Delivery,
-  ButtonDelivery,
-  ButtonDone
-} from './style'
+import * as S from './style'
 
 const Cart = () => {
   const { isOpen, items, step } = useSelector(
@@ -165,29 +155,29 @@ const Cart = () => {
 
   return (
     <form onSubmit={form.handleSubmit}>
-      <CartContainer className={isOpen ? 'is-open' : ''}>
-        <Overlay onClick={closeCart} />
-        <Sidebar>
+      <S.CartContainer className={isOpen ? 'is-open' : ''}>
+        <S.Overlay onClick={closeCart} />
+        <S.Sidebar>
           {items.length > 0 ? (
             <>
               {step === 1 && (
                 <>
                   <ul className="margin-top">
                     {items.map((item) => (
-                      <CartItems key={item.id}>
+                      <S.CartItems key={item.id}>
                         <img src={item.foto} alt={item.nome} />
                         <div>
                           <h3>{item.nome}</h3>
                           <p className="price">{parseToBrl(item.preco)}</p>
-                          <ButtonDelete onClick={() => removeItem(item.id)} />
+                          <S.ButtonDelete onClick={() => removeItem(item.id)} />
                         </div>
-                      </CartItems>
+                      </S.CartItems>
                     ))}
                   </ul>
-                  <TotalPrice>
+                  <S.TotalPrice>
                     <h4>Valor total:</h4>
                     <span>{parseToBrl(getTotalPrice())}</span>
-                  </TotalPrice>
+                  </S.TotalPrice>
                   <ButtonAdd onClick={() => dispatch(nextStep())} type="button">
                     Continuar com a entrega
                   </ButtonAdd>
@@ -196,7 +186,7 @@ const Cart = () => {
 
               {step === 2 && (
                 <>
-                  <Delivery>
+                  <S.Delivery>
                     <h3>Entrega</h3>
                     <div>
                       <label htmlFor="fullName">Quem irá receber</label>
@@ -273,7 +263,7 @@ const Cart = () => {
                     </div>
 
                     <div className="buttons">
-                      <ButtonDelivery
+                      <S.ButtonDelivery
                         onClick={async () => {
                           const isStep1Valid = await validateStep([
                             'fullName',
@@ -294,21 +284,21 @@ const Cart = () => {
                         type="submit"
                       >
                         Continuar com o pagamento
-                      </ButtonDelivery>
-                      <ButtonDelivery
+                      </S.ButtonDelivery>
+                      <S.ButtonDelivery
                         onClick={() => dispatch(prevStep())}
                         type="button"
                       >
                         Voltar para o carrinho
-                      </ButtonDelivery>
+                      </S.ButtonDelivery>
                     </div>
-                  </Delivery>
+                  </S.Delivery>
                 </>
               )}
 
               {step === 3 && (
                 <>
-                  <Delivery>
+                  <S.Delivery>
                     <h3>
                       Pagamento - Valor a pagar {parseToBrl(getTotalPrice())}
                     </h3>
@@ -377,7 +367,7 @@ const Cart = () => {
                       </div>
                     </div>
                     <div className="buttons">
-                      <ButtonDelivery
+                      <S.ButtonDelivery
                         onClick={async () => {
                           const isStep2Valid = await validateStep([
                             'cardDisplayName',
@@ -398,21 +388,21 @@ const Cart = () => {
                         type="submit"
                       >
                         Finalizar pagamento
-                      </ButtonDelivery>
-                      <ButtonDelivery
+                      </S.ButtonDelivery>
+                      <S.ButtonDelivery
                         onClick={() => dispatch(prevStep())}
                         type="button"
                       >
                         Voltar para a edição de endereço
-                      </ButtonDelivery>
+                      </S.ButtonDelivery>
                     </div>
-                  </Delivery>
+                  </S.Delivery>
                 </>
               )}
 
               {step === 4 && (
                 <>
-                  <Delivery>
+                  <S.Delivery>
                     <h3>Pedido realizado - {data?.orderId}</h3>
                     <p>
                       Estamos felizes em informar que seu pedido já está em
@@ -432,14 +422,14 @@ const Cart = () => {
                       Esperamos que desfrute de uma deliciosa e agradável
                       experiência gastronômica. Bom apetite!
                     </p>
-                    <ButtonDone
+                    <S.ButtonDone
                       title="Clique para concluir pedido"
                       to={'/'}
                       onClick={finalizeOrder}
                     >
                       Concluir
-                    </ButtonDone>
-                  </Delivery>
+                    </S.ButtonDone>
+                  </S.Delivery>
                 </>
               )}
             </>
@@ -449,8 +439,8 @@ const Cart = () => {
               com a compra.
             </p>
           )}
-        </Sidebar>
-      </CartContainer>
+        </S.Sidebar>
+      </S.CartContainer>
     </form>
   )
 }

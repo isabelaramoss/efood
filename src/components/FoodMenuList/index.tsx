@@ -6,17 +6,7 @@ import { parseToBrl } from '../../utils'
 import { Cardapio } from '../../pages/Home'
 
 import closeIcon from '../../assets/close-icon.png'
-import {
-  MenuListContainer,
-  List,
-  ButtonAdd,
-  FoodContainer,
-  InfoContent,
-  Modal,
-  ModalContainer,
-  Content,
-  CloseButton
-} from './style'
+import * as S from './style'
 
 interface modalState extends Cardapio {
   isVisible: boolean
@@ -65,17 +55,17 @@ const FoodMenuList = ({ items }: FoodItems) => {
 
   return (
     <>
-      <MenuListContainer>
+      <S.MenuListContainer>
         <div className="container">
-          <List>
+          <S.List>
             {items.map((food) => (
-              <FoodContainer key={food.id}>
+              <S.FoodContainer key={food.id}>
                 <img src={food.foto} alt="" />
-                <InfoContent>
+                <S.InfoContent>
                   <h4>{food.nome}</h4>
                   <p>{getDescription(food.descricao)}</p>
-                </InfoContent>
-                <ButtonAdd
+                </S.InfoContent>
+                <S.ButtonAdd
                   onClick={() => {
                     setModal({
                       isVisible: true,
@@ -90,38 +80,38 @@ const FoodMenuList = ({ items }: FoodItems) => {
                   title={`Clique para saber mais detalhes sobre ${food.nome}`}
                 >
                   Mais detalhes
-                </ButtonAdd>
-              </FoodContainer>
+                </S.ButtonAdd>
+              </S.FoodContainer>
             ))}
-          </List>
+          </S.List>
         </div>
-      </MenuListContainer>
-      <Modal className={modal.isVisible ? 'visible' : ''}>
-        <ModalContainer>
+      </S.MenuListContainer>
+      <S.Modal className={modal.isVisible ? 'visible' : ''}>
+        <S.ModalContainer>
           <div>
             <img src={modal.foto} alt="Imagem comida" />
           </div>
-          <Content>
+          <S.Content>
             <h2>{modal.nome}</h2>
             <p>{modal.descricao}</p>
             <span>Serve: {modal.porcao}</span>
-            <ButtonAdd onClick={addToCart}>
+            <S.ButtonAdd onClick={addToCart}>
               Adicionar ao carrinho - {parseToBrl(modal.preco)}
-            </ButtonAdd>
-          </Content>
-          <CloseButton
+            </S.ButtonAdd>
+          </S.Content>
+          <S.CloseButton
             alt="Botão fechar"
             src={closeIcon}
             onClick={closeModal}
           />
-        </ModalContainer>
+        </S.ModalContainer>
         <div
           className="overlay"
           onClick={() => {
             closeModal()
           }}
         ></div>
-      </Modal>
+      </S.Modal>
     </>
   )
 }

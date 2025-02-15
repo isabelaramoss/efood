@@ -1,7 +1,7 @@
 import FoodCard from '../FoodCard'
 import { FoodInfos } from '../../pages/Home'
 
-import { FoodListContainer, List } from './style'
+import * as S from './style'
 
 export type Props = {
   items: FoodInfos[]
@@ -23,9 +23,9 @@ const FoodList = ({ items }: Props) => {
   }
 
   return (
-    <FoodListContainer>
+    <S.FoodListContainer>
       <div className="container">
-        <List>
+        <S.List>
           {items.map((food) => (
             <FoodCard
               key={food.id}
@@ -37,9 +37,9 @@ const FoodList = ({ items }: Props) => {
               id={food.id}
             />
           ))}
-        </List>
+        </S.List>
       </div>
-    </FoodListContainer>
+    </S.FoodListContainer>
   )
 }
 
