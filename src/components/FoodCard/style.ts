@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { colors } from '../../styles'
 import { TagContainer } from '../Tag/style'
+import { colors } from '../../styles'
 
 export const FoodContainer = styled.div`
   max-width: 472px;

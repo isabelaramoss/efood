@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom'
+import { useGetRestaurantsByIdQuery } from '../../services/api'
 import Banner from '../../components/Banner'
 import HeaderFoodMenu from '../../components/HeaderFoodMenu'
 import FoodMenuLists from '../../components/FoodMenuList'
-import { useGetRestaurantsByIdQuery } from '../../services/api'
 
 const FoodMenu = () => {
   const { id } = useParams()

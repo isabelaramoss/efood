@@ -1,8 +1,8 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { colors } from '../../styles'
 import Delete from '../../assets/delete-icon.png'
 import { ButtonAdd } from '../FoodMenuList/style'
-import { Link } from 'react-router-dom'
 
 export const Overlay = styled.div`
   position: absolute;

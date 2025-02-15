@@ -1,4 +1,17 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../services/api'
 import { ButtonAdd } from '../FoodMenuList/style'
+import { RootReducer } from '../../store'
+import {
+  close,
+  remove,
+  nextStep,
+  prevStep,
+  setStep,
+  clear
+} from '../../store/reducers/cart'
 import {
   ButtonDelete,
   CartContainer,
@@ -10,19 +23,6 @@ import {
   ButtonDelivery,
   ButtonDone
 } from './style'
-import { RootReducer } from '../../store'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  close,
-  remove,
-  nextStep,
-  prevStep,
-  setStep,
-  clear
-} from '../../store/reducers/cart'
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {
   const { isOpen, items, step } = useSelector(

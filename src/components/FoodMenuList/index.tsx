@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { add, open } from '../../store/reducers/cart'
 import { Cardapio } from '../../pages/Home'
 import closeIcon from '../../assets/close-icon.png'
 import {
@@ -12,8 +14,6 @@ import {
   Content,
   CloseButton
 } from './style'
-import { useDispatch } from 'react-redux'
-import { add, open } from '../../store/reducers/cart'
 
 interface modalState extends Cardapio {
   isVisible: boolean

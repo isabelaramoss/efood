@@ -3,8 +3,8 @@ import { Provider } from 'react-redux'
 import Rotas from './routes'
 import { store } from './store'
 import Footer from './components/Footer'
-import { GlobalStyle } from './styles'
 import Cart from './components/Cart'
+import { GlobalStyle } from './styles'
 
 function App() {
   return (
