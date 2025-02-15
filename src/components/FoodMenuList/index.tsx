@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { add, open } from '../../store/reducers/cart'
+import { parseToBrl } from '../../utils'
 import { Cardapio } from '../../pages/Home'
 
 import closeIcon from '../../assets/close-icon.png'
@@ -48,13 +49,6 @@ const FoodMenuList = ({ items }: FoodItems) => {
       porcao: '',
       preco: 0
     })
-  }
-
-  const priceFormat = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   const getDescription = (descricao: string) => {
@@ -112,7 +106,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
             <p>{modal.descricao}</p>
             <span>Serve: {modal.porcao}</span>
             <ButtonAdd onClick={addToCart}>
-              Adicionar ao carrinho - {priceFormat(modal.preco)}
+              Adicionar ao carrinho - {parseToBrl(modal.preco)}
             </ButtonAdd>
           </Content>
           <CloseButton

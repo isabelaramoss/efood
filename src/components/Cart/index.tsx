@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 
 import { usePurchaseMutation } from '../../services/api'
+import { parseToBrl } from '../../utils'
 import { RootReducer } from '../../store'
 import {
   close,
@@ -37,13 +38,6 @@ const Cart = () => {
 
   const closeCart = () => {
     dispatch(close())
-  }
-
-  const priceFormat = (preco = 0) => {
-    return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
   }
 
   const getTotalPrice = () => {
@@ -184,7 +178,7 @@ const Cart = () => {
                         <img src={item.foto} alt={item.nome} />
                         <div>
                           <h3>{item.nome}</h3>
-                          <p className="price">{priceFormat(item.preco)}</p>
+                          <p className="price">{parseToBrl(item.preco)}</p>
                           <ButtonDelete onClick={() => removeItem(item.id)} />
                         </div>
                       </CartItems>
@@ -192,7 +186,7 @@ const Cart = () => {
                   </ul>
                   <TotalPrice>
                     <h4>Valor total:</h4>
-                    <span>{priceFormat(getTotalPrice())}</span>
+                    <span>{parseToBrl(getTotalPrice())}</span>
                   </TotalPrice>
                   <ButtonAdd onClick={() => dispatch(nextStep())} type="button">
                     Continuar com a entrega
@@ -316,7 +310,7 @@ const Cart = () => {
                 <>
                   <Delivery>
                     <h3>
-                      Pagamento - Valor a pagar {priceFormat(getTotalPrice())}
+                      Pagamento - Valor a pagar {parseToBrl(getTotalPrice())}
                     </h3>
                     <div>
                       <label htmlFor="cardDisplayName">Nome no cartão</label>
