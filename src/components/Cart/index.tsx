@@ -31,8 +31,8 @@ const Cart = () => {
   }
 
   const getTotalPrice = () => {
-    return items.reduce((acumulador, valorAtual) => {
-      return (acumulador += valorAtual.preco)
+    return items.reduce((acumulador, currentItem) => {
+      return (acumulador += currentItem.preco)
     }, 0)
   }
 
@@ -423,6 +423,7 @@ const Cart = () => {
                       experiência gastronômica. Bom apetite!
                     </p>
                     <S.ButtonDone
+                      type="submit"
                       title="Clique para concluir pedido"
                       to={'/'}
                       onClick={finalizeOrder}
