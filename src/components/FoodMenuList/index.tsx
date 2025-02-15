@@ -105,12 +105,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
             onClick={closeModal}
           />
         </S.ModalContainer>
-        <div
-          className="overlay"
-          onClick={() => {
-            closeModal()
-          }}
-        ></div>
+        <div className="overlay" onClick={closeModal}></div>
       </S.Modal>
     </>
   )
