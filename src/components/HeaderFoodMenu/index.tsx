@@ -22,7 +22,7 @@ const HeaderFoodMenu = () => {
         <Link title="eFood | Clique para ir à página inicial" to="/">
           <img src={logo} alt="Logo eFood" />
         </Link>
-        <CartButton onClick={openCart}>
+        <CartButton onClick={openCart} title="Clique para abrir carrinho">
           {items.length} produto(s) no carrinho
         </CartButton>
       </Content>
