@@ -10,7 +10,7 @@ import { FooterContainer, ListContainer } from './style'
 const Footer = () => (
   <FooterContainer>
     <div className="container">
-      <Link to="/">
+      <Link title="eFood | Clique para ir à página inicial" to="/">
         <img src={logo} alt="Logo eFood" />
       </Link>
       <ListContainer>

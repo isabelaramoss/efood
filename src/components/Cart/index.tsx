@@ -438,7 +438,11 @@ const Cart = () => {
                       Esperamos que desfrute de uma deliciosa e agradável
                       experiência gastronômica. Bom apetite!
                     </p>
-                    <ButtonDone to={'/'} onClick={finalizeOrder}>
+                    <ButtonDone
+                      title="Clique para concluir pedido"
+                      to={'/'}
+                      onClick={finalizeOrder}
+                    >
                       Concluir
                     </ButtonDone>
                   </Delivery>

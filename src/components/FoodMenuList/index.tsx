@@ -93,6 +93,7 @@ const FoodMenuList = ({ items }: FoodItems) => {
                       preco: food.preco
                     })
                   }}
+                  title={`Clique para saber mais detalhes sobre ${food.nome}`}
                 >
                   Mais detalhes
                 </ButtonAdd>

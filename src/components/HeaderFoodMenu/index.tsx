@@ -19,7 +19,7 @@ const HeaderFoodMenu = () => {
     <HeaderContainer>
       <Content className="container">
         <h3>Restaurantes</h3>
-        <Link to="/">
+        <Link title="eFood | Clique para ir à página inicial" to="/">
           <img src={logo} alt="Logo eFood" />
         </Link>
         <CartButton onClick={openCart}>

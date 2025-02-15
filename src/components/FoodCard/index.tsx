@@ -50,7 +50,12 @@ const FoodCard = ({
           </RatingContainer>
         </Infos>
         <p>{getDescription(description)}</p>
-        <Button to={`/restaurantes/${id}`}>Saiba mais</Button>
+        <Button
+          title="Clique para saber mais sobre o restaurante"
+          to={`/restaurantes/${id}`}
+        >
+          Saiba mais
+        </Button>
       </InfoContent>
     </FoodContainer>
   )
