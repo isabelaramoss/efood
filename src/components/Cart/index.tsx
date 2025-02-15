@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import InputMask from 'react-input-mask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { parseToBrl } from '../../utils'
@@ -59,7 +60,7 @@ const Cart = () => {
         .min(5, 'O nome precisa ter pelo menos 5 caracteres.')
         .required('O campo é obrigatório.'),
       cep: Yup.string()
-        .min(7, 'O campo precisa ter 8 caracteres.')
+        .min(8, 'O campo precisa ter 8 caracteres.')
         .max(8, 'O campo precisa ter 8 caracteres.')
         .required('O campo é obrigatório.'),
       streetAddress: Yup.string()
@@ -74,8 +75,7 @@ const Cart = () => {
         .min(5, 'O campo precisa ter pelo menos 5 caracteres.')
         .required('O campo é obrigatório.'),
       cardNumber: Yup.string()
-        .min(13, ' O campo precisa ter entre 13 e 15 números.')
-        .max(15, ' O campo precisa ter entre 13 e 15 números.')
+        .max(23, 'O campo precisa seguir o modelo mostrado.')
         .required('O campo é obrigatório.'),
       expiresMonth: Yup.string()
         .min(1, 'O campo precisa ter 2 caracteres.')
@@ -227,7 +227,7 @@ const Cart = () => {
                     <div className="side-x-side">
                       <div>
                         <label htmlFor="cep">CEP</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="cep"
                           id="cep"
@@ -235,6 +235,7 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cep') ? 'error' : ''}
+                          mask="99999-999"
                         />
                       </div>
                       <div>
@@ -317,7 +318,7 @@ const Cart = () => {
                     <div className="address-numbers">
                       <div>
                         <label htmlFor="cardNumber">Número do cartão</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="cardNumber"
                           id="cardNumber"
@@ -325,11 +326,12 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cardNumber') ? 'error' : ''}
+                          mask="9999 9999 9999 9999"
                         />
                       </div>
                       <div>
                         <label htmlFor="cardCode">CVV</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="cardCode"
                           id="cardCode"
@@ -337,13 +339,14 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cardCode') ? 'error' : ''}
+                          mask="999"
                         />
                       </div>
                     </div>
                     <div className="address-numbers">
                       <div>
                         <label htmlFor="expiresMonth">Mês do vencimento</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="expiresMonth"
                           id="expiresMonth"
@@ -351,11 +354,12 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('expiresMonth') ? 'error' : ''}
+                          mask="99"
                         />
                       </div>
                       <div>
                         <label htmlFor="expiresYear">Ano do vencimento</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="expiresYear"
                           id="expiresYear"
@@ -363,6 +367,7 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('expiresYear') ? 'error' : ''}
+                          mask="99"
                         />
                       </div>
                     </div>
