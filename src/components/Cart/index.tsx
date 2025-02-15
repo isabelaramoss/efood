@@ -22,11 +22,14 @@ import {
 } from '../../store/reducers/cart'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import { usePurchaseMutation } from '../../services/api'
 
 const Cart = () => {
   const { isOpen, items, step } = useSelector(
     (state: RootReducer) => state.cart
   )
+
+  const [purchase, { data }] = usePurchaseMutation()
 
   const dispatch = useDispatch()
 
@@ -70,8 +73,8 @@ const Cart = () => {
         .min(5, 'O nome precisa ter pelo menos 5 caracteres.')
         .required('O campo é obrigatório.'),
       cep: Yup.string()
-        .min(7, 'O campo precisa ter 7 caracteres.')
-        .max(7, 'O campo precisa ter 7 caracteres.')
+        .min(7, 'O campo precisa ter 8 caracteres.')
+        .max(8, 'O campo precisa ter 8 caracteres.')
         .required('O campo é obrigatório.'),
       streetAddress: Yup.string()
         .min(6, 'Endereço inválido')
@@ -89,7 +92,7 @@ const Cart = () => {
         .max(15, ' O campo precisa ter entre 13 e 15 números.')
         .required('O campo é obrigatório.'),
       expiresMonth: Yup.string()
-        .min(2, 'O campo precisa ter 2 caracteres.')
+        .min(1, 'O campo precisa ter 2 caracteres.')
         .max(2, 'O campo precisa ter 2 caracteres.')
         .required('O campo é obrigatório.'),
       expiresYear: Yup.string()
@@ -97,12 +100,38 @@ const Cart = () => {
         .max(2, 'O campo precisa ter 2 caracteres.')
         .required('O campo é obrigatório.'),
       cardCode: Yup.string()
-        .min(3, 'O campo precisa ter 2 caracteres.')
-        .max(3, 'O campo precisa ter 2 caracteres.')
+        .min(2, 'O campo precisa ter 3 caracteres.')
+        .max(3, 'O campo precisa ter 3 caracteres.')
         .required('O campo é obrigatório.')
     }),
     onSubmit: (values) => {
-      console.log(values)
+      purchase({
+        products: items.map((item) => ({
+          id: item.id,
+          price: item.preco as number
+        })),
+        delivery: {
+          receiver: values.fullName,
+          address: {
+            description: values.streetAddress,
+            city: values.city,
+            zipCode: values.cep,
+            number: Number(values.addressNumber),
+            complement: values.complement
+          }
+        },
+        payment: {
+          card: {
+            name: values.cardDisplayName,
+            number: values.cardNumber,
+            code: Number(values.cardCode),
+            expires: {
+              month: Number(values.expiresMonth),
+              year: Number(values.expiresYear)
+            }
+          }
+        }
+      })
     }
   })
 
@@ -388,7 +417,7 @@ const Cart = () => {
               {step === 4 && (
                 <>
                   <Delivery>
-                    <h3>Pedido realizado - ######</h3>
+                    <h3>Pedido realizado - {data?.orderId}</h3>
                     <p>
                       Estamos felizes em informar que seu pedido já está em
                       processo de preparação e, em breve, será entregue no
