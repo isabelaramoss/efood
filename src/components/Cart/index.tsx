@@ -22,7 +22,7 @@ const Cart = () => {
     (state: RootReducer) => state.cart
   )
 
-  const [purchase, { data }] = usePurchaseMutation()
+  const [purchase, { data, isLoading }] = usePurchaseMutation()
 
   const dispatch = useDispatch()
 
@@ -386,8 +386,12 @@ const Cart = () => {
                           }
                         }}
                         type="submit"
+                        title="Clique para finalizar pagamento"
+                        disabled={isLoading}
                       >
-                        Finalizar pagamento
+                        {isLoading
+                          ? 'Finalizando compra...'
+                          : 'Finalizar pagamento'}
                       </S.ButtonDelivery>
                       <S.ButtonDelivery
                         onClick={() => dispatch(prevStep())}
@@ -424,7 +428,6 @@ const Cart = () => {
                     </p>
                     <S.ButtonDone
                       type="submit"
-                      title="Clique para concluir pedido"
                       to={'/'}
                       onClick={finalizeOrder}
                     >
