@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
+import InputMask from 'react-input-mask'
 
 import { usePurchaseMutation } from '../../services/api'
 import { parseToBrl } from '../../utils'
@@ -154,6 +155,12 @@ const Cart = () => {
     )
   }
 
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.type !== 'number') {
+      e.target.selectionStart = e.target.value.length
+    }
+  }
+
   return (
     <form onSubmit={form.handleSubmit}>
       <S.CartContainer className={isOpen ? 'is-open' : ''}>
@@ -229,7 +236,7 @@ const Cart = () => {
                     <div className="side-x-side">
                       <div>
                         <label htmlFor="cep">CEP</label>
-                        <input
+                        <InputMask
                           type="number"
                           name="cep"
                           id="cep"
@@ -237,6 +244,8 @@ const Cart = () => {
                           onChange={form.handleChange}
                           onBlur={form.handleBlur}
                           className={getError('cep') ? 'error' : ''}
+                          mask="9999999999"
+                          onFocus={handleFocus}
                         />
                       </div>
                       <div>
