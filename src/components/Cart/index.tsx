@@ -62,8 +62,8 @@ const Cart = () => {
         .min(5, 'O nome precisa ter pelo menos 5 caracteres.')
         .required('O campo é obrigatório.'),
       cep: Yup.string()
-        .min(8, 'O campo precisa ter 8 caracteres.')
-        .max(8, 'O campo precisa ter 8 caracteres.')
+        .min(9, 'O campo precisa ter 9 caracteres.')
+        .max(9, 'O campo precisa ter 9 caracteres.')
         .required('O campo é obrigatório.'),
       streetAddress: Yup.string()
         .min(6, 'Endereço inválido')
@@ -237,14 +237,17 @@ const Cart = () => {
                       <div>
                         <label htmlFor="cep">CEP</label>
                         <InputMask
-                          type="number"
+                          type="text"
                           name="cep"
                           id="cep"
                           value={form.values.cep}
-                          onChange={form.handleChange}
+                          onChange={(e) => {
+                            form.setFieldValue('cep', e.target.value)
+                            form.setFieldTouched('cep', true)
+                          }}
                           onBlur={form.handleBlur}
                           className={getError('cep') ? 'error' : ''}
-                          mask="9999999999"
+                          mask="99999-999"
                           onFocus={handleFocus}
                         />
                       </div>
