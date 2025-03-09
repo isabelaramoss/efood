@@ -62,8 +62,7 @@ const Cart = () => {
         .min(5, 'O nome precisa ter pelo menos 5 caracteres.')
         .required('O campo é obrigatório.'),
       cep: Yup.string()
-        .min(9, 'O campo precisa ter 9 caracteres.')
-        .max(9, 'O campo precisa ter 9 caracteres.')
+        .max(9, 'O campo precisa ter 8 números.')
         .required('O campo é obrigatório.'),
       streetAddress: Yup.string()
         .min(6, 'Endereço inválido')
@@ -80,16 +79,13 @@ const Cart = () => {
         .max(23, 'O campo precisa seguir o modelo mostrado.')
         .required('O campo é obrigatório.'),
       expiresMonth: Yup.string()
-        .min(1, 'O campo precisa ter 2 caracteres.')
-        .max(2, 'O campo precisa ter 2 caracteres.')
+        .max(2, 'O campo deve ser preenchido com 2 caracteres. Exemplo: 02')
         .required('O campo é obrigatório.'),
       expiresYear: Yup.string()
-        .min(2, 'O campo precisa ter 2 caracteres.')
-        .max(2, 'O campo precisa ter 2 caracteres.')
+        .max(2, 'O campo deve ser preenchido com 2 caracteres. Exemplo: 25')
         .required('O campo é obrigatório.'),
       cardCode: Yup.string()
-        .min(2, 'O campo precisa ter 3 caracteres.')
-        .max(3, 'O campo precisa ter 3 caracteres.')
+        .max(3, 'O campo precisa ter 3 números.')
         .required('O campo é obrigatório.')
     }),
     onSubmit: (values) => {
@@ -104,7 +100,7 @@ const Cart = () => {
             description: values.streetAddress,
             city: values.city,
             zipCode: values.cep,
-            number: Number(values.addressNumber),
+            number: values.addressNumber,
             complement: values.complement
           }
         },
@@ -112,10 +108,10 @@ const Cart = () => {
           card: {
             name: values.cardDisplayName,
             number: values.cardNumber,
-            code: Number(values.cardCode),
+            code: values.cardCode,
             expires: {
-              month: Number(values.expiresMonth),
-              year: Number(values.expiresYear)
+              month: values.expiresMonth,
+              year: values.expiresYear
             }
           }
         }
